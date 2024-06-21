@@ -1,11 +1,15 @@
 <script>
+import ListBooks from "../../books/components/list-books.component.vue";
+
 export default {
-  name: "user-page"
+  name: "user-page",
+  components: {ListBooks}
 }
 </script>
 
 <template>
-pagina para users
+
+<list-books></list-books>
 </template>
 
 <style scoped>
