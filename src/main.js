@@ -50,6 +50,7 @@ import RadioButton from 'primevue/radiobutton';
 import SplitButton from "primevue/splitbutton";
 import Badge from 'primevue/badge';
 import ProgressBar from 'primevue/progressbar';
+import SelectButton from "primevue/selectbutton";
 
 
 createApp(App)
@@ -90,6 +91,7 @@ createApp(App)
     .component('pv-speed-dial',SpeedDial)
     .component('pv-calendar',Calendar)
     .component('pv-split-button', SplitButton)
+    .component('pv-select-button',SelectButton)
     .directive('styleclass', StyleClass)
     .directive('ripple', Ripple)
     .mount('#app')
