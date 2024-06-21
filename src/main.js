@@ -52,7 +52,6 @@ import Badge from 'primevue/badge';
 import ProgressBar from 'primevue/progressbar';
 import SelectButton from "primevue/selectbutton";
 
-
 createApp(App)
     .use(router)
     .use(PrimeVue, {ripple: true})

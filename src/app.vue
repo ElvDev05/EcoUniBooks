@@ -24,12 +24,15 @@ export default {
 
 
     <template #end>
-      <router-link to="/users">
-        <pv-button label="Users" ></pv-button>
-      </router-link>
-      <router-link to="/sellers">
-        <pv-button label="Sellers" ></pv-button>
-      </router-link>
+      <div class="container-btn">
+        <router-link to="/users">
+          <pv-button label="Users" ></pv-button>
+        </router-link>
+        <router-link to="/sellers/books-management">
+          <pv-button label="Sellers" ></pv-button>
+        </router-link>
+      </div>
+
 
     </template>
   </pv-toolbar>
@@ -39,4 +42,8 @@ export default {
 
 </template>
 <style scoped>
+.container-btn{
+  display:flex;
+  gap:10px;
+}
 </style>

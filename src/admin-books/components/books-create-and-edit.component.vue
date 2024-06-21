@@ -3,7 +3,7 @@ import CreateAndEditComponent from "../../shared/components/create-and-edit.comp
 import CreateAndEdit from "../../shared/components/create-and-edit.component.vue";
 export default {
   name: "books-create-and-edit",
-  components:{ CreateAndEdit, CreateAndEditComponent},
+  components:{CreateAndEdit, CreateAndEditComponent},
   props:{
     item:null,
     visible:Boolean,
@@ -14,7 +14,8 @@ export default {
       submitted:false,
       dialogSize:'extra-large',
       formatos: ['Digital', 'Physical'],
-      condiciones:['Nuevo','Usado']
+      condiciones:['New','Used'],
+      categories: ['Action','Horror','Mystery','Fantasy','Romance','Sci-Fi']
     }
   },
   methods:{
@@ -35,7 +36,7 @@ export default {
       console.log(this.item);
       this.submitted = true;
       if (this.item.titulo) {
-        this.$emit('saved', this.item);
+        this.$emit('saved2', this.item);
       }
     }
   }
@@ -89,7 +90,9 @@ export default {
           <div class="field mt-5 container-field">
             <label for="category">Category</label>
             <pv-float-label>
-              <pv-input-text id="category" v-model="item.categoria" />
+              <pv-dropdown v-model="item.categoria" :options="categories" placeholder="Select Category" class="w-full md:w-56" />
+
+              <!--              <pv-input-text id="category" v-model="item.categoria" />-->
             </pv-float-label>
           </div>
           <div class="field mt-5 container-field">

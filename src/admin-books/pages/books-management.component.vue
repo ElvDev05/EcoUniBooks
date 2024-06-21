@@ -22,7 +22,7 @@ export default {
   },
   methods:{
     findIndexById(id) {
-      return this.books.findIndex((book) => book.id === id);
+      return this.books.findIndex((book) => book._id === id);
     },
 
     notifySuccessfulAction(message) {
@@ -68,7 +68,7 @@ export default {
     onSavedEventHandler(item){
       this.submitted=true;
       if(this.book.titulo.trim()){
-        if(item.id){
+        if(item._id){
           this.updateBook();
         }else{
           this.createBook();
@@ -79,11 +79,18 @@ export default {
     },
 
     createBook(){
-      this.book._id=0;
+      this.book.publicado_por= '667289ea2bc7735e5a86f905';
+      this.book.fecha_publicacion = new Date();
       this.book=Book.fromDisplayableBook(this.book);
+
+      console.log("el book ->",this.book);
       this.bookService.create(this.book)
           .then((response) =>{
+            console.log("el book 2 ->",this.book);
+
             this.book = Book.toDisplayableBook(response.data);
+            console.log("el book 3->",this.book);
+
             this.books.push(this.book);
             this.notifySuccessfulAction("Book Created");
           })
@@ -153,7 +160,7 @@ export default {
 
 <books-create-and-edit   :statuses="statuses" :item="book" :edit="isEdit" :visible="isVisible"
                        v-on:canceled="onCanceledEventHandler"
-                       v-on:saved="onSavedEventHandler($event)"
+                       v-on:saved2="onSavedEventHandler($event)"
 />
 </div>
 </template>
