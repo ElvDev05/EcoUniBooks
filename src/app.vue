@@ -31,6 +31,12 @@ export default {
         <router-link to="/sellers/books-management">
           <pv-button label="Sellers" ></pv-button>
         </router-link>
+        <router-link to="/login">
+          <pv-button label="Sign in" ></pv-button>
+        </router-link>
+        <router-link to="/register">
+          <pv-button label="Sign up" ></pv-button>
+        </router-link>
       </div>
 
 

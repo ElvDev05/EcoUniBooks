@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-dadaads
+ <h1>Home</h1>
 </template>
 
 <style scoped>
