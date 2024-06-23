@@ -9,7 +9,8 @@ export class Book {
         stock,
         condicion,
         fecha_publicacion,
-        publicado_por
+        publicado_por,
+                imagen
     ) {
         this._id = id;
         this.titulo = titulo;
@@ -22,6 +23,7 @@ export class Book {
         this.condicion = condicion;
         this.fecha_publicacion = fecha_publicacion;
         this.publicado_por = publicado_por;
+        this.imagen = imagen;
         // this.status = this.publicado_por ? 'Published' : 'Unpublished';
     }
 
@@ -37,7 +39,8 @@ export class Book {
             displayableBook.stock,
             displayableBook.condicion,
             displayableBook.fecha_publicacion,
-            displayableBook.publicado_por
+            displayableBook.publicado_por,
+            displayableBook.imagen
         );
     }
 
@@ -54,6 +57,7 @@ export class Book {
             condicion: book.condicion,
             fecha_publicacion: book.fecha_publicacion,
             publicado_por: book.publicado_por,
+            imagen: book.imagen
             // status: book.publicado_por ? 'Published' : 'Unpublished'
         };
     }

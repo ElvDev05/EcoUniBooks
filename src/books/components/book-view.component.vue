@@ -6,6 +6,12 @@ export default {
   props: {
     book: Book
   },
+  created() {
+    if(localStorage.getItem('isLoggedIn') === 'true'){
+      localStorage.setItem('isLoggedIn', 'false');
+      location.reload();
+    }
+  },
   methods:{
     viewMore(){
       this.$emit('viewMore', this.book);
@@ -33,6 +39,10 @@ export default {
 
     <template #content>
       <div class="card-content">
+        <div>
+          <img :src="book.imagen" alt="Book image">
+        </div>
+
         <div>
           <p>Author</p>
           <p>{{ book.autor }}</p>
