@@ -26,9 +26,12 @@ export default {
         if (user) {
           // Usuario autenticado, redirigir a la página de inicio
           console.log("Inicio de sesión exitoso");
-          localStorage.setItem('userId', user.id);
+          localStorage.setItem('userId', user._id);
           localStorage.setItem('isLoggedIn', 'true'); // Guardar booleano
+
           this.$router.push("/users");
+
+
         } else {
           // Credenciales incorrectas
           this.error = "Nombre de usuario o contraseña incorrectos";

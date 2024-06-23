@@ -18,7 +18,6 @@ export default {
   methods: {
     async register() {
       const userService = new UserApiService();
-      const userId = Math.random().toString().slice(2);
       const newuser = new User(this.name, this.email, this.direccion, this.telefono, this.password ,this.age);
       if (this.password !== this.confirmPassword) {
         alert("Las contraseñas no coinciden");

@@ -101,13 +101,17 @@ export default {
               <pv-textarea v-model="this.item.descripcion" autoResize rows="13" cols="30" />
             </pv-float-label>
           </div>
+          <div class="field mt-5 container-field">
+            <label for="description">Imagen</label>
+            <pv-float-label>
+              <pv-textarea v-model="this.item.imagen" autoResize rows="1" cols="30" />
+            </pv-float-label>
+          </div>
         </section>
       </div>
 
 
     </template>
-
-
 
 
 

@@ -4,6 +4,7 @@ export default {
   data() {
     return {
       drawer: false,
+      isLoggedIn: false,
       items: [
         { label: 'Home', to: '/home'},
         { label: 'Tutorials', to: '/tutorials' },
@@ -11,10 +12,20 @@ export default {
       ]
     }
   },
+  created() {
+    this.isLoggedIn = !!localStorage.getItem('userId');
+  },
   methods: {
     toggleDrawer() {
-      this.drawer = !this.drawer
-    }
+      this.drawer = !this.drawer;
+    },
+    logout() {
+      localStorage.removeItem('userId');
+      localStorage.removeItem('userRole');
+      this.isLoggedIn = false;
+      this.userRole = null;
+      this.$router.push("/login");
+    },
   }
 }
 </script>
@@ -31,12 +42,16 @@ export default {
         <router-link to="/sellers/books-management">
           <pv-button label="Sellers" ></pv-button>
         </router-link>
-        <router-link to="/login">
-          <pv-button label="Sign in" ></pv-button>
+
+        <router-link to="/login" v-if="!isLoggedIn">
+          <pv-button label="Sign in"></pv-button>
         </router-link>
-        <router-link to="/register">
-          <pv-button label="Sign up" ></pv-button>
+        <router-link to="/register" v-if="!isLoggedIn">
+          <pv-button label="Sign up"></pv-button>
         </router-link>
+        <pv-button @click="logout" v-if="isLoggedIn">
+          Logout
+        </pv-button>
       </div>
 
 
