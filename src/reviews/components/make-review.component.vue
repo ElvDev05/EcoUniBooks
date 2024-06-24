@@ -52,7 +52,7 @@ export default {
       <i v-for="star in 5" :key="star" @click="setRating(star)" :class="getStarClass(star, review.calificacion)" class="pi pi-star-fill"></i>
     </div>
 
-    <button @click="createReview" class="btn-make-review">Make Review</button>
+    <button @click="createReview" class="btn-make-review">Review</button>
   </section>
 </template>
 
