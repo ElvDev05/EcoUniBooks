@@ -20,10 +20,14 @@ export default {
      this.review.libro_id = this.$route.params.bookId;
      this.review.usuario_id ='6678b38eb20852f8b5e0b6ca';
      this.review.fecha = new Date();
-      console.log("Review creada:", this.review);
-      this.reviewService.create(this.review).then(() => {
-        this.$emit('reviewCreated');
-      });
+     if(this.review.opinion && this.review.calificacion){
+       console.log("Review creada:", this.review);
+       this.reviewService.create(this.review).then(() => {
+         this.$emit('reviewCreated');
+         this.resetComponent();
+       });
+     }
+
 
     },
     setRating(calificacion) {
@@ -31,6 +35,10 @@ export default {
     },
     getStarClass(star, rating) {
       return star <= rating ? 'pi pi-star-fill' : 'pi pi-star';
+    },
+    resetComponent(){
+      this.review.calificacion = null;
+      this.review.opinion=null;
     }
   }
 }

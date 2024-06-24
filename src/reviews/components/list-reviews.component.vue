@@ -80,6 +80,9 @@ export default {
         </div>
       </div>
     </div>
+    <div v-if="!trueReviews" class="nothing-container">
+    <p style="font-weight:bold;font-size:20px">Este libro aún no tiene reseñas</p>
+    </div>
   </section>
 </template>
 
@@ -102,5 +105,10 @@ export default {
   margin-top: 10px;
   font-size: 14px;
   line-height: 1.5;
+}
+
+.nothing-container{
+  display: flex;
+  justify-content: center;
 }
 </style>

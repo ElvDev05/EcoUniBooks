@@ -12,7 +12,7 @@ export default {
       books:[],
       book:{},
       bookService:null,
-      reviewComponentKey: false
+      reviewComponentKey: 0
     }
   },
   created(){
@@ -25,7 +25,7 @@ export default {
   },
   methods:{
     handleReviewCreated() {
-      this.reviewComponentKey =!this.reviewComponentKey;
+      this.reviewComponentKey += 1;
     }
   }
 
