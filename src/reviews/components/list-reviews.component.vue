@@ -24,6 +24,10 @@ export default {
     this.userService = new UserApiService();
     this.fetchReviews();
   },
+  watch: {
+    '$route.params.bookId': 'fetchReviews', // Re-fetch reviews when the route changes
+    key: 'fetchReviews' // Re-fetch reviews when the key changes
+  },
   methods:{
     fetchReviews(){
 
@@ -81,8 +85,7 @@ export default {
 
 <style scoped>
 .reviews {
-  width: 800px;
-  margin: 0 auto;
+  width:100%;
 }
 
 .review-container {

@@ -2,15 +2,17 @@
 import {Book} from "../../admin-books/model/book.entity.js";
 import {BooksApiService} from "../../admin-books/services/books-api.service.js";
 import ListReviews from "../../reviews/components/list-reviews.component.vue";
+import MakeReview from "../../reviews/components/make-review.component.vue";
 
 export default {
   name: "book-detail",
-  components: {ListReviews},
+  components: {MakeReview, ListReviews},
   data(){
     return {
       books:[],
       book:{},
-      bookService:null
+      bookService:null,
+      reviewComponentKey: false
     }
   },
   created(){
@@ -20,7 +22,13 @@ export default {
 
       this.book = response.data;
     })
+  },
+  methods:{
+    handleReviewCreated() {
+      this.reviewComponentKey =!this.reviewComponentKey;
+    }
   }
+
 }
 </script>
 
@@ -69,11 +77,16 @@ export default {
   </div>
 
   <div class="reviews-container">
-    <section class="reviews-section">
 
-      <list-reviews></list-reviews>
+    <section class="create-review">
+      <make-review @reviewCreated="this.handleReviewCreated">
+      </make-review>
 
     </section>
+    <section class="list-reviews">
+      <list-reviews :key="reviewComponentKey"></list-reviews>
+    </section>
+
 
   </div>
 
@@ -102,6 +115,7 @@ export default {
   border:1px solid black;
   padding:15px;
   border-radius:15px;
+  width:1000px;
 }
 .image-section{
   height: 500px;
@@ -123,13 +137,26 @@ export default {
 }
 .btn-buy{
   height:50px;
-  width: 90%;
+  width: 400px;
 }
 .subtitle{
   font-weight:bold;
 }
-.reviews-section{
-  margin-top:20px;
+.reviews-container{
+  width:100%;
+  display:flex;
+  margin-top: 20px;
+  gap:55px;
   height:auto;
+  justify-content:space-between;
 }
+.create-review{
+  width:700px;
+
+}
+.list-reviews{
+  width:1000px;
+  height: auto;
+}
+
 </style>
