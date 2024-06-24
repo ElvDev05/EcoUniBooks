@@ -1,9 +1,11 @@
 <script>
 import {Book} from "../../admin-books/model/book.entity.js";
 import {BooksApiService} from "../../admin-books/services/books-api.service.js";
+import ListReviews from "../../reviews/components/list-reviews.component.vue";
 
 export default {
   name: "book-detail",
+  components: {ListReviews},
   data(){
     return {
       books:[],
@@ -68,9 +70,9 @@ export default {
 
   <div class="reviews-container">
     <section class="reviews-section">
-    <p>
-      somos reviews
-    </p>
+
+      <list-reviews></list-reviews>
+
     </section>
 
   </div>
@@ -125,5 +127,9 @@ export default {
 }
 .subtitle{
   font-weight:bold;
+}
+.reviews-section{
+  margin-top:20px;
+  height:auto;
 }
 </style>
